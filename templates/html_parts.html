@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    <style>
+        /* ベーススタイル */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        header, nav, main, footer {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 15px;
+            background-color: #ffffff;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        figcaption {
+            font-size: 0.9em;
+            color: #666;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        aside {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- ページのヘッダー -->
+    <header>
+        <h1>HTML要素一覧</h1>
+        <p>すべてのHTML要素を試すページ</p>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav>
+        <ul>
+            <li><a href="#section1">セクション1</a></li>
+            <li><a href="#section2">セクション2</a></li>
+            <li><a href="#footer">フッター</a></li>
+        </ul>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <section id="section1">
+            <h2>セクション1</h2>
+            <p><strong>見出しとパラグラフ:</strong> これは例のテキストです。</p>
+
+            <!-- テーブル -->
+            <table>
+                <caption>表キャプション</caption>
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>年齢</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>太郎</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>花子</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- 画像 -->
+            <figure>
+                <img src="https://via.placeholder.com/150" alt="サンプル画像">
+                <figcaption>サンプル画像の説明</figcaption>
+            </figure>
+        </section>
+
+        <!-- 記事要素 -->
+        <article id="section2">
+            <h2>セクション2</h2>
+            <p>記事の内容はここに記載されます。</p>
+            <blockquote cite="https://example.com">これは引用です。</blockquote>
+            <ul>
+                <li>リストアイテム1</li>
+                <li>リストアイテム2</li>
+            </ul>
+            <ol>
+                <li>順序付きリスト1</li>
+                <li>順序付きリスト2</li>
+            </ol>
+
+            <!-- フォーム -->
+            <form action="#" method="post">
+                <label for="name">名前:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email">
+                <input type="submit" value="送信">
+            </form>
+        </article>
+
+        <!-- サイドコンテンツ -->
+        <aside>
+            <h3>補足情報</h3>
+            <p>これはサイドバーのコンテンツです。</p>
+        </aside>
+    </main>
+
+    <!-- フッター -->
+    <footer id="footer">
+        <p>フッターコンテンツ &copy; 2024</p>
+    </footer>
+{% endblock %}

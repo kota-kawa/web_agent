@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+<head>
+    <title>上級クイズフォーム</title>
+</head>
+
+{% block content %}
+<style>
+    
+</style>
+
+<div class="quiz-form">
+    <h1>上級クイズフォーム</h1>
+    <form action="/submit_quiz" method="post">
+        <!-- 名前の入力 -->
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name" placeholder="お名前を入力してください" required>
+
+        <!-- メールアドレスの入力 -->
+        <label for="email">メールアドレス:</label>
+        <input type="email" id="email" name="email" placeholder="メールアドレスを入力してください" required>
+
+        <!-- クイズの質問1：数学（ラジオボタン） -->
+        <fieldset>
+            <legend>質問1: 5の階乗（5!）は次のうちどれですか？</legend>
+            <label><input type="radio" name="question1" value="60" required> 60</label><br>
+            <label><input type="radio" name="question1" value="120"> 120</label><br>
+            <label><input type="radio" name="question1" value="240"> 240</label><br>
+            <label><input type="radio" name="question1" value="360"> 360</label>
+        </fieldset>
+
+        <!-- クイズの質問2：地理（チェックボックス） -->
+        <fieldset>
+            <legend>質問2: 以下の中からヨーロッパにある国を選んでください（複数選択可）:</legend>
+            <label><input type="checkbox" name="question2[]" value="フランス"> フランス</label><br>
+            <label><input type="checkbox" name="question2[]" value="アルゼンチン"> アルゼンチン</label><br>
+            <label><input type="checkbox" name="question2[]" value="スペイン"> スペイン</label><br>
+            <label><input type="checkbox" name="question2[]" value="韓国"> 韓国</label><br>
+            <label><input type="checkbox" name="question2[]" value="イタリア"> イタリア</label>
+        </fieldset>
+
+        <!-- クイズの質問3：歴史（テキスト入力） -->
+        <label for="question3">質問3: ローマ帝国の最後の皇帝の名前は？</label>
+        <input type="text" id="question3" name="question3" placeholder="答えを入力してください" required>
+
+        <!-- クイズの質問4：プログラミング（セレクトボックス） -->
+        <label for="question4">質問4: Pythonで再帰関数を使って階乗を求める関数の例を見てください。そのコードで`factorial(7)`を実行した結果は？</label>
+        <select id="question4" name="question4" required>
+            <option value="">選択してください</option>
+            <option value="5040">5040</option>
+            <option value="720">720</option>
+            <option value="40320">40320</option>
+            <option value="50400">50400</option>
+        </select>
+
+        <!-- クイズの質問5：科学（複数選択式） -->
+        <fieldset>
+            <legend>質問5: 以下の中から宇宙に存在する天体を選んでください（複数選択可）:</legend>
+            <label><input type="checkbox" name="question5[]" value="火星"> 火星</label><br>
+            <label><input type="checkbox" name="question5[]" value="アンドロメダ銀河"> アンドロメダ銀河</label><br>
+            <label><input type="checkbox" name="question5[]" value="彗星"> 彗星</label><br>
+            <label><input type="checkbox" name="question5[]" value="木星"> 木星</label><br>
+            <label><input type="checkbox" name="question5[]" value="ブラックホール"> ブラックホール</label>
+        </fieldset>
+
+        <!-- クイズの質問6：物理（ラジオボタン） -->
+        <fieldset>
+            <legend>質問6: アインシュタインの相対性理論で有名な方程式「E=mc²」における`c`は何を表しますか？</legend>
+            <label><input type="radio" name="question6" value="光の速さ" required> 光の速さ</label><br>
+            <label><input type="radio" name="question6" value="音の速さ"> 音の速さ</label><br>
+            <label><input type="radio" name="question6" value="質量"> 質量</label><br>
+            <label><input type="radio" name="question6" value="エネルギー"> エネルギー</label>
+        </fieldset>
+
+        <!-- クイズの質問7：天文学（セレクトボックス） -->
+        <label for="question7">質問7: 銀河系の外縁部にあると考えられている天体の名前は？</label>
+        <select id="question7" name="question7" required>
+            <option value="">選択してください</option>
+            <option value="ブラックホール">ブラックホール</option>
+            <option value="中性子星">中性子星</option>
+            <option value="彗星">彗星</option>
+            <option value="クエーサー">クエーサー</option>
+        </select>
+
+        <!-- クイズの質問8：プログラミング（コード入力） -->
+        <label for="question8">質問8: 次のJavaScriptコードを実行した場合、コンソールに出力される結果は何ですか？</label>
+        <pre>
+const a = 5;
+const b = a * 2;
+console.log(b + 5);
+        </pre>
+        <input type="text" id="question8" name="question8" placeholder="答えを入力してください" required>
+
+        <!-- クイズの質問9：日本文化（テキストエリア） -->
+        <label for="question9">質問9: 日本の茶道の歴史と現代の影響について300文字以内で説明してください。</label>
+        <textarea id="question9" name="question9" placeholder="説明を入力してください" maxlength="300" required></textarea>
+
+        <!-- クイズの質問10：哲学（テキスト入力） -->
+        <label for="question10">質問10: プラトンの「洞窟の比喩」が象徴するものは何ですか？</label>
+        <input type="text" id="question10" name="question10" placeholder="答えを入力してください" required>
+
+        <!-- クイズの質問11：ランダム（ドロップダウン選択） -->
+        <label for="question11">質問11: 以下の数字のうち、素数はどれですか？</label>
+        <select id="question11" name="question11" required>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="11">11</option>
+        </select>
+
+        <!-- クイズの質問12：プログラミング（セレクトボックス） -->
+        <label for="question12">質問12: Pythonのジェネレータのメリットは何ですか？</label>
+        <select id="question12" name="question12" required>
+            <option value="">選択してください</option>
+            <option value="メモリ効率の向上">メモリ効率の向上</option>
+            <option value="コードの可読性">コードの可読性</option>
+            <option value="エラーハンドリング">エラーハンドリング</option>
+            <option value="デバッグの容易さ">デバッグの容易さ</option>
+        </select>
+
+        <!-- 送信ボタン -->
+        <button type="submit">送信</button>
+    </form>
+</div>
+
+{% endblock %}
